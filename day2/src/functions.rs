@@ -24,19 +24,24 @@ pub fn read_file() -> (Vec<String>, Vec<i32>){
                 let temp_str:i32 = FromStr::from_str(substr).unwrap(); // Converts from &str to i32
                 shifts.push(temp_str);
             }
+            println!("Direction: {}, hPos: {}", directions[i], shifts[i]);
         } // End of inside loop
     } // End of outside loop
     return (directions, shifts);
 } // End of read_file
 
 pub fn determiner(directions: &Vec<String>, shifts: &Vec<i32>, _depth: &mut i32, _h_pos: &mut i32 ){ // Use pass by reference to not have to return anything, just updates the vectors if anything needs to change  
-    for i in 0..directions.len() {
+    for i in 1..10 {
+        let _item = &directions[i].to_string();
         if directions[i] == "forward"{(*_h_pos) += shifts[i]} // Dereference the _depth with *
-        else if directions[i] == "up"{(*_depth) += shifts[i];} 
-        else if directions[i] == "down"{(*_depth) += shifts[i];}
+        if directions[i] == "up"{(*_depth) += shifts[i];} 
+        if directions[i] == "down"{(*_depth) -= shifts[i];}
+        
     } // End of loop
 } // End of determiner 
 
 pub fn calclations(_depth: i32, _h_pos: i32){ //multiply the depth * hPos to get final position
     println!("Depth: {}, hPos: {}, Total Shift: {} ", _depth, _h_pos, (_depth * _h_pos));
 } // End of calculations
+
+// need to figure out how to make the first hPos index not be 0 in the loop on line 18, pushing 0 into it makes the entire vector behind by one.
