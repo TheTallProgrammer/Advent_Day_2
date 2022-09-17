@@ -5,10 +5,11 @@ use std::str::FromStr;
 
 pub fn instantiator(){ // Head function
     let (mut _depth, mut _h_pos) = (0,0);
-    read_file();
+    let (directions, shifts) = read_file(); // Calls read_file and returns the input that would caught from the data.txt
+
 } // End of instantiator
 
-pub fn read_file(){
+pub fn read_file() -> (Vec<String>, Vec<i32>){
     let file = File::open("src/data.txt").unwrap();
     let reader = BufReader::new(file);
     let mut directions:Vec<String> = Vec::new(); // Vector to hold directions from data file
@@ -24,7 +25,12 @@ pub fn read_file(){
             }
         } // End of inside loop
     } // End of outside loop
+    return (directions, shifts);
 } // End of read_file
+
+pub fn determiner(){
+
+} // End of determiner 
 
 pub fn forward(){ // Moves forward changing the hPos by input
     todo!();
