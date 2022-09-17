@@ -28,7 +28,7 @@ pub fn read_file() -> (Vec<String>, Vec<i32>){
     return (directions, shifts);
 } // End of read_file
 
-pub fn determiner(){
+pub fn determiner(directions: &Vec<String>, shifts: &Vec<i32>){ // Use pass by reference to not have to return anything, just updates the vectors if anything needs to change  
 
 } // End of determiner 
 
