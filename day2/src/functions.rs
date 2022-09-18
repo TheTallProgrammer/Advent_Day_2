@@ -25,13 +25,11 @@ pub fn read_file() -> (Vec<String>, Vec<i32>){ // Returns directions, _shifts ve
 } // End of read_file
 
 pub fn determiner(directions: &Vec<String>, shifts: &Vec<i32>, _depth: &mut i32, _h_pos: &mut i32 ){ // Use pass by reference to not have to return anything, just updates the vectors if anything needs to change  
-    let mut _shifts_i = 1; // Have to set to 1 because the first value is 0 for some reason
     for i in 0..directions.len(){
         let _item = &directions[i].to_string();
-        if directions[i] == "forward"{(*_h_pos) += shifts[_shifts_i]} // Dereference the _depth with*
-        if directions[i] == "up"{(*_depth) -= shifts[_shifts_i];} 
-        if directions[i] == "down"{(*_depth) += shifts[_shifts_i];}
-        _shifts_i += 1;
+        if directions[i] == "forward"{(*_h_pos) += shifts[i+1]} // increment by 1 because initial element in vector is default 0 for some reason
+        if directions[i] == "up"{(*_depth) -= shifts[i+1];} // Dereference the _depth with*
+        if directions[i] == "down"{(*_depth) += shifts[i+1];
     } // End of loop
 } // End of determiner 
 
