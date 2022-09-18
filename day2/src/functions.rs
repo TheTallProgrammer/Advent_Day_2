@@ -7,7 +7,7 @@ pub fn instantiator(){ // Head function
     let (mut _depth, mut _h_pos) = (0,0);
     let (directions, shifts) = read_file(); // Calls read_file function and returns the input that would caught from the data.txt
     determiner(&directions, &shifts, &mut _depth, &mut _h_pos); // uses pass by reference for each argument to avoid returning 
-    calclations(_depth, _h_pos);
+    calculations(_depth, _h_pos);
 } // End of instantiator
 
 pub fn read_file() -> (Vec<String>, Vec<i32>){ // Returns directions, _shifts vectors
@@ -27,12 +27,12 @@ pub fn read_file() -> (Vec<String>, Vec<i32>){ // Returns directions, _shifts ve
 pub fn determiner(directions: &Vec<String>, shifts: &Vec<i32>, _depth: &mut i32, _h_pos: &mut i32 ){ // Use pass by reference to not have to return anything, just updates the vectors if anything needs to change  
     for i in 0..directions.len(){
         let _item = &directions[i].to_string();
-        if directions[i] == "forward"{(*_h_pos) += shifts[i+1]} // increment by 1 because initial element in vector is default 0 for some reason
+        if directions[i] == "forward"{(*_h_pos) += shifts[i+1]} // increment by 1 because initial element in vector is default 0
         if directions[i] == "up"{(*_depth) -= shifts[i+1];} // Dereference the _depth with*
-        if directions[i] == "down"{(*_depth) += shifts[i+1];
+        if directions[i] == "down"{(*_depth) += shifts[i+1]};
     } // End of loop
 } // End of determiner 
 
-pub fn calclations(_depth: i32, _h_pos: i32){ //multiply the depth * hPos to get final position
+pub fn calculations(_depth: i32, _h_pos: i32){ //multiply the depth * hPos to get final position
     println!("Depth: {}, hPos: {}, Total Shift: {} ", _depth, _h_pos, (_depth * _h_pos));
 } // End of calculations
