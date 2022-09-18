@@ -1,0 +1,1 @@
+C:\Users\Logan\PrivateContainer\rust\advent2021\day2\day2\target\debug\day2.exe: C:\Users\Logan\PrivateContainer\rust\advent2021\day2\day2\src\functions.rs C:\Users\Logan\PrivateContainer\rust\advent2021\day2\day2\src\main.rs
